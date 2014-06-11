@@ -1,7 +1,7 @@
 class svn_windows (
     $version     = $svn_windows::params::version,
     $url         = $svn_windows::params::url,
-    $package     = $svn_windows::params:package,
+    $package     = $svn_windows::params::package,
     $file_path   = false,
 ) inherits svn_windows::params {
     if $file_path {
@@ -18,7 +18,7 @@ class svn_windows (
     package { $package:
         ensure          => installed,
         source          => $svn_installer_path,
-        install_options => ['/VERYSILENT','/SUPPRESSMSGBOXES','/LOG'],
+        install_options => ['/quiet'],
     }
 
     $svn_path = 'C:\\Program Files (x86)\\SlikSvn\\bin'
